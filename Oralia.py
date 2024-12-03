@@ -1,8 +1,8 @@
 import sys, mido
 from PyQt6.QtWidgets import QApplication, QMainWindow, QTabWidget
-from Tab1.Tab1 import Tab1
-from Tab2.Tab2 import Tab2
-from Tab3.Tab3 import Tab3
+from main import Tab1
+from Tab2 import Tab2
+from Tab3 import Tab3
 
 class Oralia(QMainWindow):
     def __init__(self):
@@ -19,11 +19,14 @@ class Oralia(QMainWindow):
         self.tabs["Settings"] = Tab3(self)
         self.tab_widget.addTab(self.tabs["Settings"], "Settings")
 
+    def midi_handling (self,mididata):
+        if self.tab_widget.currentIndex() == 0:
+            self.tabs["Practical"].midi_handling(mididata)
 
 
 app = QApplication([])
 window = Oralia()
 window.show()
 
-with mido.open_input(callback=window.tabs["Practical"].midi_handling) as inport:
+with mido.open_input(callback=window.midi_handling) as inport:
     sys.exit(app.exec())
