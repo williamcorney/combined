@@ -8,6 +8,7 @@ class Tab1(Note_Handler,gui):
     note_off_signal = pyqtSignal(int)
     def __init__(self, parent_widget, *args, **kwargs):
         super().__init__()
+        self.theorymode = str
         # self.gui = gui()
         # self.parent_widget = parent_widget
 

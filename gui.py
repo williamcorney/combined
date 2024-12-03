@@ -1,6 +1,6 @@
 from PyQt6.QtWidgets import QWidget, QLabel, QVBoxLayout, QPushButton
-
-class gui(QWidget):
+from theory import Theory
+class gui(QWidget,Theory):
     def __init__(self):
         super().__init__()
         self.layout = QVBoxLayout()
@@ -12,8 +12,8 @@ class gui(QWidget):
         self.button.clicked.connect(self.button_clicked)
 
     def button_clicked (self):
-
-        self.required_notes =[1,2,3]
+        self.label.setText(str(self.define_notes()))
+        self.theorymode = "Scales"
 
 
 

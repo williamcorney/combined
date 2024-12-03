@@ -1,6 +1,6 @@
 import sys, mido
 from PyQt6.QtWidgets import QApplication, QMainWindow, QTabWidget
-from main import Tab1
+from Tab1 import Tab1
 from Tab2 import Tab2
 from Tab3 import Tab3
 
